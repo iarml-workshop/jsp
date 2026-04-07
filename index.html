@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Congres Le Touquet 2025</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Lato', sans-serif; margin: 0; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Poppins', sans-serif; }
+
+    /* Navbar */
+    .navbar { background-color: #333; }
+
+    /* Hero */
+    .hero-banner {
+      background-image:
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('assets/img/LE_TOUQUET_03_HOTEL__LODGE-1-1024x636.webp');
+      background-size: cover;
+      background-position: center center;
+      min-height: 75vh;
+      padding-top: 56px;
+      color: white;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .hero-content { position: relative; z-index: 2; }
+    .hero-content .hero-logo {
+      max-width: 180px;
+      height: auto;
+      margin-bottom: 1.5rem;
+    }
+    .hero-content h1 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 4.5em;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 0.4em;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+    }
+    .hero-content .subtitle {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.2em;
+      font-weight: 600;
+      margin-top: 0.5em;
+      margin-bottom: 0.7em;
+      letter-spacing: 0.5px;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+    }
+    .hero-content .date-info {
+      font-family: 'Lato', sans-serif;
+      font-size: 1.2em;
+      font-weight: 400;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    }
+    @media (max-width: 768px) {
+      .hero-content h1 { font-size: 3em; letter-spacing: 1px; }
+      .hero-content .subtitle { font-size: 1.8em; }
+      .hero-content .hero-logo { max-width: 130px; }
+    }
+    @media (max-width: 480px) {
+      .hero-content h1 { font-size: 2.4em; }
+      .hero-content .subtitle { font-size: 1.5em; }
+      .hero-content .hero-logo { max-width: 100px; }
+    }
+
+    /* Introduction */
+    .introduction-section h2 { font-weight: 700; color: #343a40; }
+    .introduction-section p {
+      color: #495057; line-height: 1.7; font-size: 1.1em; text-align: justify;
+    }
+
+    /* Topics */
+    .topics-section { background-color: #ffffff; }
+    .topics-section h2 { font-weight: 700; color: #343a40; }
+    .topics-section .lead {
+      color: #495057; font-size: 1.15em; line-height: 1.7; text-align: justify;
+    }
+    .topic-category .category-content {
+      background-color: #f8f9fa; border-radius: 0.375rem; border: 1px solid #dee2e6;
+    }
+    .topic-category .category-title {
+      font-weight: 600; font-size: 1.3em; color: #0d6efd;
+    }
+    .topic-category .topic-items { padding-left: 0; }
+    .topic-category .topic-items li {
+      color: #495057; font-size: 0.95em; line-height: 1.6;
+    }
+    .topic-category .topic-items .topic-icon {
+      color: #6c757d; font-size: 0.8em; margin-top: 0.3em; flex-shrink: 0;
+    }
+    @media (max-width: 767.98px) {
+      .topic-category .category-title { font-size: 1.2em; }
+      .topic-category .topic-items li { font-size: 0.9em; }
+    }
+
+    /* Submission */
+    .submission-guidelines-section h2 { font-weight: 700; color: #343a40; }
+    .submission-guidelines-section p,
+    .submission-guidelines-section li {
+      color: #495057; line-height: 1.7; font-size: 1.1em;
+    }
+    .submission-guidelines-section a {
+      color: #0d6efd; text-decoration: underline;
+      text-decoration-color: rgba(13, 110, 253, 0.4);
+    }
+    .submission-guidelines-section a:hover { text-decoration-color: rgba(13, 110, 253, 0.8); }
+    .submission-formats .format-icon {
+      color: #6c757d; font-size: 1.1em; width: 20px; text-align: center; flex-shrink: 0;
+    }
+    .submission-link-wrapper p { font-weight: 500; }
+    .submission-link-wrapper .btn {
+      font-family: 'Poppins', sans-serif; font-weight: 600;
+      padding: 0.75rem 1.5rem; color: white;
+    }
+
+    /* Schedule */
+    .schedule-section p { color: #495057; line-height: 1.7; font-size: 1.1em; }
+    .schedule-section .container { max-width: 800px; }
+    .session {
+      margin-bottom: 1.5rem; padding: 1rem;
+      border-left: 5px solid #004080; background: #f0f4f8; border-radius: 6px;
+    }
+    .session.break { border-left-color: #999; background: #eee; }
+    .session.closing { border-left-color: #0a944d; }
+    .time { font-weight: bold; display: block; margin-bottom: 0.5rem; }
+    .desc ul { padding-left: 1.2rem; margin: 0.5rem 0 0 0; }
+    .desc li { margin-bottom: 0.4rem; }
+
+    /* Committee */
+    .member-card {
+      background-color: #f8f9fa; border-radius: 0.375rem; border: none;
+      text-align: left; transition: box-shadow 0.2s ease-in-out;
+    }
+    .member-card .committee-name {
+      font-family: 'Poppins', sans-serif; font-size: 1em; color: #212529;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Doctoriale 2026</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="#introduction">Introduction</a></li>
+        <li class="nav-item"><a class="nav-link" href="#topics">Thematiques</a></li>
+        <li class="nav-item"><a class="nav-link" href="#submission">Soumission</a></li>
+        <li class="nav-item"><a class="nav-link" href="#schedule">Programme</a></li>
+        <li class="nav-item"><a class="nav-link" href="#committee">Comite</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero-banner d-flex align-items-center justify-content-center text-center text-white">
+  <div class="hero-content">
+    <h1>Doctoriale 2026</h1>
+    <p class="subtitle">Centre des Congres &mdash; Le Touquet-Paris-Plage</p>
+    <p class="date-info">12 - 14 Novembre 2026</p>
+  </div>
+</div>
+
+<!-- INTRODUCTION -->
+<div id="introduction" class="introduction-section container my-5">
+  <div class="row justify-content-center">
+    <div class="col-md-10 col-lg-10">
+      <h2 class="text-center mb-5">Introduction</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      </p>
+      <br>
+      <p>
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+      </p>
+      <br>
+      <p>
+        Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- TOPICS -->
+<section id="topics" class="topics-section py-5">
+  <div class="container">
+    <h2 class="text-center mb-5">Thematiques</h2>
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-10 text-center">
+        <p class="lead">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nous encourageons les contributions innovantes couvrant, sans s'y limiter, les thematiques suivantes :
+        </p>
+      </div>
+    </div>
+    <div class="topics-list row">
+
+      <div class="topic-category col-md-6 col-lg-4 mb-4">
+        <div class="category-content p-4 h-100">
+          <h4 class="category-title mb-3">Thematique 1 :</h4>
+          <ul class="list-unstyled topic-items">
+            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Lorem ipsum dolor sit amet consectetur</span></li>
+            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Adipiscing elit sed do eiusmod</span></li>
+            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Tempor incididunt ut labore et dolore</span></li>
+            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Magna aliqua ut enim ad minim</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="topic-category col-md-6 col-lg-4 mb-4">
+        <div class="category-content p-4 h-100">
+          <h4 class="category-title mb-3">Thematique 2 :</h4>
+          <ul class="list-unstyled topic-items">
+            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Veniam quis nostrud exercitation</span></li>
+            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Ullamco laboris nisi ut aliquip</span></li>
+            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Ex ea commodo consequat duis</span></li>
+            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Aute irure dolor in reprehenderit</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="topic-category col-md-6 col-lg-4 mb-4">
+        <div class="category-content p-4 h-100">
+          <h4 class="category-title mb-3">Thematique 3 :</h4>
+          <ul class="list-unstyled topic-items">
+            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Voluptate velit esse cillum dolore</span></li>
+            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Fugiat nulla pariatur excepteur sint</span></li>
+            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Occaecat cupidatat non proident</span></li>
+            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Sunt in culpa qui officia deserunt</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="topic-category col-md-6 col-lg-4 mb-4">
+        <div class="category-content p-4 h-100">
+          <h4 class="category-title mb-3">Thematique 4 :</h4>
+          <ul class="list-unstyled topic-items">
+            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Mollit anim id est laborum sed ut</span></li>
+            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Perspiciatis unde omnis iste natus</span></li>
+            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Error sit voluptatem accusantium</span></li>
+            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Doloremque laudantium totam rem</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="topic-category col-md-6 col-lg-4 mb-4">
+        <div class="category-content p-4 h-100">
+          <h4 class="category-title mb-3">Thematique 5 :</h4>
+          <ul class="list-unstyled topic-items">
+            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Aperiam eaque ipsa quae ab illo</span></li>
+            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Inventore veritatis et quasi architecto</span></li>
+            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Beatae vitae dicta sunt explicabo</span></li>
+            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Nemo enim ipsam voluptatem quia</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="topic-category col-md-6 col-lg-4 mb-4">
+        <div class="category-content p-4 h-100">
+          <h4 class="category-title mb-3">Thematique 6 :</h4>
+          <ul class="list-unstyled topic-items">
+            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Voluptas sit aspernatur aut odit</span></li>
+            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Aut fugit sed quia consequuntur</span></li>
+            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Magni dolores eos qui ratione</span></li>
+            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Voluptatem sequi nesciunt neque porro</span></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SOUMISSION -->
+<section id="submission" class="submission-guidelines-section py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-5">Soumission</h2>
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Les articles doivent suivre le format indique dans le template disponible ici :
+          <a href="#" target="_blank" rel="noopener noreferrer">Template <i class="fas fa-external-link-alt fa-xs ms-1"></i></a>.
+        </p>
+        <p>Nous acceptons les soumissions dans deux formats :</p>
+        <ul class="list-unstyled submission-formats mb-4 ps-md-4">
+          <li class="mb-2 d-flex align-items-start">
+            <i class="fas fa-file-alt me-2 mt-1 format-icon"></i>
+            <div><strong>Resumes etendus :</strong> (jusqu'a 2 pages + 1 page de references)</div>
+          </li>
+          <li class="mb-2 d-flex align-items-start">
+            <i class="fas fa-file-invoice me-2 mt-1 format-icon"></i>
+            <div><strong>Articles complets :</strong> (jusqu'a 12 pages + 2 pages de references)</div>
+          </li>
+        </ul>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+        <hr class="my-4">
+        <div class="text-center submission-link-wrapper">
+          <p class="mb-3">Soumettez votre article ici :</p>
+          <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">
+            Soumettre <i class="fas fa-arrow-right ms-2"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMME -->
+<section id="schedule" class="schedule-section py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Programme</h2>
+
+    <div class="session">
+      <span class="time">9:00&ndash;9:15</span>
+      <span class="desc">Accueil et ouverture</span>
+    </div>
+
+    <div class="session">
+      <span class="time">9:15&ndash;10:15</span>
+      <span class="desc">
+        <strong>Conferencier invite</strong> (Lorem Ipsum University)<br>
+        <em>Lorem ipsum dolor sit amet consectetur adipiscing elit</em>
+      </span>
+    </div>
+
+    <div class="session break">
+      <span class="time">10:15&ndash;10:45</span>
+      <span class="desc">Pause cafe</span>
+    </div>
+
+    <div class="session">
+      <span class="time">10:45&ndash;12:15</span>
+      <span class="desc">
+        <strong>Presentations</strong>
+        <ul>
+          <li>Lorem ipsum dolor sit amet (Auteur A)</li>
+          <li>Consectetur adipiscing elit sed do (Auteur B)</li>
+          <li>Eiusmod tempor incididunt ut labore (Auteur C)</li>
+        </ul>
+      </span>
+    </div>
+
+    <div class="session break">
+      <span class="time">12:15&ndash;13:30</span>
+      <span class="desc">Dejeuner</span>
+    </div>
+
+    <div class="session">
+      <span class="time">13:30&ndash;14:30</span>
+      <span class="desc">
+        <strong>Conferencier invite</strong> (Dolor Sit University)<br>
+        <em>Sed ut perspiciatis unde omnis iste natus error sit voluptatem</em>
+      </span>
+    </div>
+
+    <div class="session">
+      <span class="time">14:30&ndash;15:30</span>
+      <span class="desc">
+        <strong>Presentations</strong>
+        <ul>
+          <li>Dolore magna aliqua ut enim (Auteur D)</li>
+          <li>Ad minim veniam quis nostrud (Auteur E)</li>
+        </ul>
+      </span>
+    </div>
+
+    <div class="session break">
+      <span class="time">15:30&ndash;16:00</span>
+      <span class="desc">Pause cafe</span>
+    </div>
+
+    <div class="session">
+      <span class="time">16:00&ndash;17:00</span>
+      <span class="desc">
+        <strong>Table ronde et discussion</strong><br>
+        <em>Lorem ipsum dolor sit amet</em>
+      </span>
+    </div>
+
+    <div class="session closing">
+      <span class="time">17:00&ndash;17:15</span>
+      <span class="desc">Cloture</span>
+    </div>
+  </div>
+</section>
+
+<!-- COMITE -->
+<section id="committee" class="committee-section py-5">
+  <div class="container">
+    <h2 class="text-center mb-5 committee-main-title">Comite</h2>
+    <div class="committee-role mb-5">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 g-4">
+
+        <div class="col">
+          <div class="member-card p-3 h-100">
+            <div class="committee-name fw-semibold mb-1">Prenom Nom</div>
+            <div class="committee-org text-muted small mb-1">Universite Lorem, France</div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="member-card p-3 h-100">
+            <div class="committee-name fw-semibold mb-1">Prenom Nom</div>
+            <div class="committee-org text-muted small mb-1">Universite Ipsum, France</div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="member-card p-3 h-100">
+            <div class="committee-name fw-semibold mb-1">Prenom Nom</div>
+            <div class="committee-org text-muted small mb-1">Universite Dolor, France</div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="member-card p-3 h-100">
+            <div class="committee-name fw-semibold mb-1">Prenom Nom</div>
+            <div class="committee-org text-muted small mb-1">Universite Amet, France</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

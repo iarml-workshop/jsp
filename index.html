@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Congres Le Touquet 2025</title>
+  <title>IA² 2026 - Institut d'Automne en Intelligence Artificielle</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
@@ -19,7 +19,7 @@
     .hero-banner {
       background-image:
         linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-        url('assets/img/LE_TOUQUET_03_HOTEL__LODGE-1-1024x636.webp');
+        url('https://asset-prod.france.fr/touquet_plage_80f7baf241.jpg');
       background-size: cover;
       background-position: center center;
       min-height: 75vh;
@@ -124,17 +124,93 @@
     }
 
     /* Schedule */
-    .schedule-section p { color: #495057; line-height: 1.7; font-size: 1.1em; }
-    .schedule-section .container { max-width: 800px; }
-    .session {
-      margin-bottom: 1.5rem; padding: 1rem;
-      border-left: 5px solid #004080; background: #f0f4f8; border-radius: 6px;
+    .schedule-section {
+      background-color: #f8f9fa;
     }
-    .session.break { border-left-color: #999; background: #eee; }
-    .session.closing { border-left-color: #0a944d; }
-    .time { font-weight: bold; display: block; margin-bottom: 0.5rem; }
-    .desc ul { padding-left: 1.2rem; margin: 0.5rem 0 0 0; }
-    .desc li { margin-bottom: 0.4rem; }
+    .schedule-section h2 { font-weight: 700; color: #343a40; }
+
+    .day-card {
+      position: relative;
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 2rem 2rem 1.5rem 2rem;
+      box-shadow: 0 2px 16px rgba(0, 64, 128, 0.06);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      overflow: hidden;
+    }
+    .day-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(0, 64, 128, 0.12);
+    }
+    .day-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 4px;
+      background: linear-gradient(90deg, #004080, #0d6efd);
+    }
+
+    .day-number {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 3.5rem;
+      line-height: 1;
+      color: #004080;
+      opacity: 0.12;
+      position: absolute;
+      top: 12px; right: 20px;
+    }
+
+    .day-theme {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 1.15em;
+      color: #004080;
+      margin-bottom: 1rem;
+      padding-right: 2.5rem;
+    }
+
+    .day-topics {
+      list-style: none;
+      padding: 0; margin: 0;
+    }
+    .day-topics li {
+      font-family: 'Lato', sans-serif;
+      color: #495057;
+      font-size: 0.95em;
+      line-height: 1.5;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid #f0f0f0;
+      display: flex;
+      align-items: baseline;
+      gap: 0.6rem;
+    }
+    .day-topics li:last-child { border-bottom: none; }
+    .day-topics li::before {
+      content: '';
+      width: 6px; height: 6px;
+      min-width: 6px;
+      background: #0d6efd;
+      border-radius: 50%;
+      margin-top: 0.45em;
+    }
+    .day-topics li.session-poster {
+      color: #004080;
+      font-style: italic;
+      font-size: 0.88em;
+      border-bottom: none;
+      padding-top: 0.6rem;
+    }
+    .day-topics li.session-poster::before {
+      background: transparent;
+      border: 1.5px solid #004080;
+    }
+
+    @media (max-width: 767.98px) {
+      .day-card { padding: 1.5rem 1.25rem 1.25rem 1.25rem; }
+      .day-number { font-size: 2.5rem; }
+      .day-theme { font-size: 1.05em; }
+    }
 
     /* Committee */
     .member-card {
@@ -151,7 +227,7 @@
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Doctoriale 2026</a>
+    <a class="navbar-brand" href="#">IA² 2026</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -160,9 +236,9 @@
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item"><a class="nav-link" href="#introduction">Introduction</a></li>
         <li class="nav-item"><a class="nav-link" href="#topics">Thematiques</a></li>
-        <li class="nav-item"><a class="nav-link" href="#submission">Soumission</a></li>
+        <li class="nav-item"><a class="nav-link" href="#submission">Public concerné</a></li>
         <li class="nav-item"><a class="nav-link" href="#schedule">Programme</a></li>
-        <li class="nav-item"><a class="nav-link" href="#committee">Comite</a></li>
+        <li class="nav-item"><a class="nav-link" href="#committee">Comité</a></li>
       </ul>
     </div>
   </div>
@@ -171,9 +247,9 @@
 <!-- HERO -->
 <div class="hero-banner d-flex align-items-center justify-content-center text-center text-white">
   <div class="hero-content">
-    <h1>Doctoriale 2026</h1>
-    <p class="subtitle">Centre des Congres &mdash; Le Touquet-Paris-Plage</p>
-    <p class="date-info">12 - 14 Novembre 2026</p>
+    <h1>IA²</h1>
+    <p class="subtitle">Institut d'Automne en Intelligence Artificielle</p>
+    <p class="date-info">Le Touquet-Paris-Plage, France &mdash; 12 - 18 Octobre 2026</p>
   </div>
 </div>
 
@@ -183,15 +259,15 @@
     <div class="col-md-10 col-lg-10">
       <h2 class="text-center mb-5">Introduction</h2>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        L’Intelligence Artificielle (IA) est un domaine important de l’informatique à plusieurs titres, tout d’abord en termes de taille de la communauté française, ensuite en termes scientifiques, mais surtout actuellement en termes d’enjeux d’innovation et d’impact sociétal.
       </p>
       <br>
       <p>
-        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+        Dans la structuration et le fonctionnement de notre communauté de recherche en IA, nous observons une tendance naturelle à la spécialisation des chercheuses et des chercheurs, qui ont une maîtrise incontestable de leur domaine, mais qui n’ont parfois que peu d’occasions d’aller explorer les autres techniques de l’IA et de prendre du recul sur la discipline dans son ensemble. Pourtant, les applications ayant fait l’actualité et la promotion de l’IA ces dernières années (que ce soit AlphaGo pour le go, IBM Watson pour Jeopardy, Libratus pour le poker, AlphaFold de DeepMind ou Mistral et LLama pour les grands modèles de langues), illustrent surtout la nécessité d’intégration de différentes techniques d’intelligence artificielle (symboliques, non symboliques par exemple).
       </p>
       <br>
       <p>
-        Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.
+        L’idée est de proposer une école généraliste en intelligence artificielle, afin que nos collègues, en particulier les jeunes chercheur.ses, aient un panorama des différentes sous-disciplines de l’intelligence artificielle et de leurs principales techniques.
       </p>
     </div>
   </div>
@@ -201,83 +277,63 @@
 <section id="topics" class="topics-section py-5">
   <div class="container">
     <h2 class="text-center mb-5">Thematiques</h2>
-    <div class="row justify-content-center mb-5">
-      <div class="col-lg-10 text-center">
-        <p class="lead">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nous encourageons les contributions innovantes couvrant, sans s'y limiter, les thematiques suivantes :
-        </p>
-      </div>
-    </div>
-    <div class="topics-list row">
+    <div class="topics-list row justify-content-center">
 
       <div class="topic-category col-md-6 col-lg-4 mb-4">
         <div class="category-content p-4 h-100">
-          <h4 class="category-title mb-3">Thematique 1 :</h4>
+          <h4 class="category-title mb-3">Panorama de l'IA et Sciences</h4>
           <ul class="list-unstyled topic-items">
-            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Lorem ipsum dolor sit amet consectetur</span></li>
-            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Adipiscing elit sed do eiusmod</span></li>
-            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Tempor incididunt ut labore et dolore</span></li>
-            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Magna aliqua ut enim ad minim</span></li>
+            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Introduction generale a l'IA et ses enjeux scientifiques</span></li>
+            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Apprentissage automatique et apprentissage profond</span></li>
+            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>IA symbolique et raisonnement automatise</span></li>
+            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Constraint Reasoning : modelisation, approches (CP, SAT, ASP)</span></li>
+            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Raisonnement et decouverte scientifique</span></li>
           </ul>
         </div>
       </div>
 
       <div class="topic-category col-md-6 col-lg-4 mb-4">
         <div class="category-content p-4 h-100">
-          <h4 class="category-title mb-3">Thematique 2 :</h4>
+          <h4 class="category-title mb-3">Graphes de connaissances et applications biomedicales</h4>
           <ul class="list-unstyled topic-items">
-            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Veniam quis nostrud exercitation</span></li>
-            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Ullamco laboris nisi ut aliquip</span></li>
-            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Ex ea commodo consequat duis</span></li>
-            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Aute irure dolor in reprehenderit</span></li>
+            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Introduction aux graphes de connaissances</span></li>
+            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Raisonnement et extraction d'informations biomedicales</span></li>
+            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Etudes de cas en biologie et medecine</span></li>
+            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Ontologies et repositionnement de medicaments</span></li>
           </ul>
         </div>
       </div>
 
       <div class="topic-category col-md-6 col-lg-4 mb-4">
         <div class="category-content p-4 h-100">
-          <h4 class="category-title mb-3">Thematique 3 :</h4>
+          <h4 class="category-title mb-3">IA, sante et sciences humaines</h4>
           <ul class="list-unstyled topic-items">
-            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Voluptate velit esse cillum dolore</span></li>
-            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Fugiat nulla pariatur excepteur sint</span></li>
-            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Occaecat cupidatat non proident</span></li>
-            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Sunt in culpa qui officia deserunt</span></li>
+            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Traitement automatique des langues et extraction d'informations</span></li>
+            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Grands modeles de langues appliques a la science</span></li>
+            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>IA appliquee aux donnees medicales</span></li>
+            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>IA et sciences humaines et sociales</span></li>
           </ul>
         </div>
       </div>
 
       <div class="topic-category col-md-6 col-lg-4 mb-4">
         <div class="category-content p-4 h-100">
-          <h4 class="category-title mb-3">Thematique 4 :</h4>
+          <h4 class="category-title mb-3">Modeles generatifs, chimie et environnement</h4>
           <ul class="list-unstyled topic-items">
-            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Mollit anim id est laborum sed ut</span></li>
-            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Perspiciatis unde omnis iste natus</span></li>
-            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Error sit voluptatem accusantium</span></li>
-            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Doloremque laudantium totam rem</span></li>
+            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Modeles generatifs pour la decouverte de materiaux</span></li>
+            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>IA pour la conception de materiaux et sciences environnementales</span></li>
+            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Simulation moleculaire par IA</span></li>
           </ul>
         </div>
       </div>
 
       <div class="topic-category col-md-6 col-lg-4 mb-4">
         <div class="category-content p-4 h-100">
-          <h4 class="category-title mb-3">Thematique 5 :</h4>
+          <h4 class="category-title mb-3">Ethique et perspectives futures</h4>
           <ul class="list-unstyled topic-items">
-            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Aperiam eaque ipsa quae ab illo</span></li>
-            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Inventore veritatis et quasi architecto</span></li>
-            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Beatae vitae dicta sunt explicabo</span></li>
-            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Nemo enim ipsam voluptatem quia</span></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="topic-category col-md-6 col-lg-4 mb-4">
-        <div class="category-content p-4 h-100">
-          <h4 class="category-title mb-3">Thematique 6 :</h4>
-          <ul class="list-unstyled topic-items">
-            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Voluptas sit aspernatur aut odit</span></li>
-            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Aut fugit sed quia consequuntur</span></li>
-            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Magni dolores eos qui ratione</span></li>
-            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Voluptatem sequi nesciunt neque porro</span></li>
+            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Enjeux ethiques de l'IA appliquee a la recherche scientifique</span></li>
+            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>IA responsable : transparence, explicabilite et impacts societaux</span></li>
+            <li class="mb-2 d-flex"><i class="fas fa-chevron-right me-2 topic-icon"></i><span>Perspectives et defis futurs de l'IA en sciences</span></li>
           </ul>
         </div>
       </div>
@@ -286,35 +342,41 @@
   </div>
 </section>
 
-<!-- SOUMISSION -->
+<!-- PUBLIC CONCERNE -->
 <section id="submission" class="submission-guidelines-section py-5 bg-light">
   <div class="container">
-    <h2 class="text-center mb-5">Soumission</h2>
+    <h2 class="text-center mb-5">Public concerné</h2>
     <div class="row justify-content-center">
       <div class="col-lg-10">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Les articles doivent suivre le format indique dans le template disponible ici :
-          <a href="#" target="_blank" rel="noopener noreferrer">Template <i class="fas fa-external-link-alt fa-xs ms-1"></i></a>.
-        </p>
-        <p>Nous acceptons les soumissions dans deux formats :</p>
+        <p><strong>Prioritairement :</strong></p>
         <ul class="list-unstyled submission-formats mb-4 ps-md-4">
           <li class="mb-2 d-flex align-items-start">
-            <i class="fas fa-file-alt me-2 mt-1 format-icon"></i>
-            <div><strong>Resumes etendus :</strong> (jusqu'a 2 pages + 1 page de references)</div>
+            <i class="fas fa-user-graduate me-2 mt-1 format-icon"></i>
+            <div>Chercheurs et chercheuses (post-doctorants, CR, MCF) en IA ou utilisateurs de l'IA</div>
           </li>
           <li class="mb-2 d-flex align-items-start">
-            <i class="fas fa-file-invoice me-2 mt-1 format-icon"></i>
-            <div><strong>Articles complets :</strong> (jusqu'a 12 pages + 2 pages de references)</div>
+            <i class="fas fa-flask me-2 mt-1 format-icon"></i>
+            <div>Chercheurs et chercheuses dans des domaines connexes (biologie, chimie, medecine, SHS) utilisant l'IA dans leurs recherches</div>
           </li>
         </ul>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
+        <p><strong>Secondairement :</strong></p>
+        <ul class="list-unstyled submission-formats mb-4 ps-md-4">
+          <li class="mb-2 d-flex align-items-start">
+            <i class="fas fa-book-reader me-2 mt-1 format-icon"></i>
+            <div>Doctorants en IA</div>
+          </li>
+          <li class="mb-2 d-flex align-items-start">
+            <i class="fas fa-microscope me-2 mt-1 format-icon"></i>
+            <div>Doctorants dans des domaines connexes (biologie, chimie, medecine, SHS) utilisant l'IA dans leurs recherches</div>
+          </li>
+        </ul>
+        <hr class="my-4">
+        <p><strong>Prerequis :</strong> Aucun prerequis n'est necessaire pour suivre l'enseignement de cette ecole. Une mise a niveau incluant un panorama general sur les techniques d'IA est prevue en debut de semaine.</p>
         <hr class="my-4">
         <div class="text-center submission-link-wrapper">
-          <p class="mb-3">Soumettez votre article ici :</p>
+          <p class="mb-3">Inscrivez-vous :</p>
           <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">
-            Soumettre <i class="fas fa-arrow-right ms-2"></i>
+            S'inscrire <i class="fas fa-arrow-right ms-2"></i>
           </a>
         </div>
       </div>
@@ -325,78 +387,77 @@
 <!-- PROGRAMME -->
 <section id="schedule" class="schedule-section py-5">
   <div class="container">
-    <h2 class="text-center mb-4">Programme</h2>
+    <h2 class="text-center mb-5">Programme</h2>
 
-    <div class="session">
-      <span class="time">9:00&ndash;9:15</span>
-      <span class="desc">Accueil et ouverture</span>
-    </div>
+    <div class="row g-4">
 
-    <div class="session">
-      <span class="time">9:15&ndash;10:15</span>
-      <span class="desc">
-        <strong>Conferencier invite</strong> (Lorem Ipsum University)<br>
-        <em>Lorem ipsum dolor sit amet consectetur adipiscing elit</em>
-      </span>
-    </div>
+      <div class="col-md-6">
+        <div class="day-card h-100">
+          <span class="day-number">01</span>
+          <div class="day-theme">Panorama de l'IA et Sciences</div>
+          <ul class="day-topics">
+            <li>Introduction generale a l'IA et ses enjeux scientifiques</li>
+            <li>Apprentissage automatique et apprentissage profond</li>
+            <li>IA symbolique et raisonnement automatise</li>
+            <li>Constraint Reasoning : modelisation, approches (CP, SAT, ASP), outils/solveurs</li>
+            <li>Raisonnement et decouverte scientifique</li>
+            <li class="session-poster"><i class="fas fa-clipboard-list me-1"></i> Session demos et posters</li>
+          </ul>
+        </div>
+      </div>
 
-    <div class="session break">
-      <span class="time">10:15&ndash;10:45</span>
-      <span class="desc">Pause cafe</span>
-    </div>
+      <div class="col-md-6">
+        <div class="day-card h-100">
+          <span class="day-number">02</span>
+          <div class="day-theme">Graphes de connaissances, ontologies et applications biomedicales</div>
+          <ul class="day-topics">
+            <li>Introduction aux graphes de connaissances</li>
+            <li>Raisonnement et extraction d'informations biomedicales</li>
+            <li>Etudes de cas en biologie et medecine</li>
+            <li class="session-poster"><i class="fas fa-clipboard-list me-1"></i> Session posters et exposes courts</li>
+          </ul>
+        </div>
+      </div>
 
-    <div class="session">
-      <span class="time">10:45&ndash;12:15</span>
-      <span class="desc">
-        <strong>Presentations</strong>
-        <ul>
-          <li>Lorem ipsum dolor sit amet (Auteur A)</li>
-          <li>Consectetur adipiscing elit sed do (Auteur B)</li>
-          <li>Eiusmod tempor incididunt ut labore (Auteur C)</li>
-        </ul>
-      </span>
-    </div>
+      <div class="col-md-6">
+        <div class="day-card h-100">
+          <span class="day-number">03</span>
+          <div class="day-theme">IA, sante et sciences humaines</div>
+          <ul class="day-topics">
+            <li>Traitement automatique des langues et extraction d'informations</li>
+            <li>Grands modeles de langues appliques a la science</li>
+            <li>IA appliquee aux donnees medicales</li>
+            <li>IA et sciences humaines et sociales</li>
+            <li class="session-poster"><i class="fas fa-clipboard-list me-1"></i> Session demos et posters</li>
+          </ul>
+        </div>
+      </div>
 
-    <div class="session break">
-      <span class="time">12:15&ndash;13:30</span>
-      <span class="desc">Dejeuner</span>
-    </div>
+      <div class="col-md-6">
+        <div class="day-card h-100">
+          <span class="day-number">04</span>
+          <div class="day-theme">Modeles generatifs pour la chimie et l'environnement</div>
+          <ul class="day-topics">
+            <li>Modeles generatifs pour la decouverte de materiaux</li>
+            <li>IA pour la conception de materiaux et les sciences environnementales</li>
+            <li>Simulation moleculaire par IA</li>
+            <li class="session-poster"><i class="fas fa-clipboard-list me-1"></i> Session demos et posters</li>
+          </ul>
+        </div>
+      </div>
 
-    <div class="session">
-      <span class="time">13:30&ndash;14:30</span>
-      <span class="desc">
-        <strong>Conferencier invite</strong> (Dolor Sit University)<br>
-        <em>Sed ut perspiciatis unde omnis iste natus error sit voluptatem</em>
-      </span>
-    </div>
+      <div class="col-md-6 mx-auto">
+        <div class="day-card h-100">
+          <span class="day-number">05</span>
+          <div class="day-theme">Ethique et perspectives futures</div>
+          <ul class="day-topics">
+            <li>Enjeux ethiques de l'IA appliquee a la recherche scientifique</li>
+            <li>IA responsable : transparence, explicabilite et impacts societaux</li>
+            <li>Perspectives et defis futurs de l'IA en sciences</li>
+          </ul>
+        </div>
+      </div>
 
-    <div class="session">
-      <span class="time">14:30&ndash;15:30</span>
-      <span class="desc">
-        <strong>Presentations</strong>
-        <ul>
-          <li>Dolore magna aliqua ut enim (Auteur D)</li>
-          <li>Ad minim veniam quis nostrud (Auteur E)</li>
-        </ul>
-      </span>
-    </div>
-
-    <div class="session break">
-      <span class="time">15:30&ndash;16:00</span>
-      <span class="desc">Pause cafe</span>
-    </div>
-
-    <div class="session">
-      <span class="time">16:00&ndash;17:00</span>
-      <span class="desc">
-        <strong>Table ronde et discussion</strong><br>
-        <em>Lorem ipsum dolor sit amet</em>
-      </span>
-    </div>
-
-    <div class="session closing">
-      <span class="time">17:00&ndash;17:15</span>
-      <span class="desc">Cloture</span>
     </div>
   </div>
 </section>
@@ -404,40 +465,62 @@
 <!-- COMITE -->
 <section id="committee" class="committee-section py-5">
   <div class="container">
-    <h2 class="text-center mb-5 committee-main-title">Comite</h2>
-    <div class="committee-role mb-5">
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 g-4">
-
-        <div class="col">
-          <div class="member-card p-3 h-100">
-            <div class="committee-name fw-semibold mb-1">Prenom Nom</div>
-            <div class="committee-org text-muted small mb-1">Universite Lorem, France</div>
-          </div>
+    <h2 class="text-center mb-5 committee-main-title">Comité scientifique</h2>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-5 g-4 mb-5 justify-content-center">
+      <div class="col">
+        <div class="member-card p-3 h-100">
+          <div class="committee-name fw-semibold mb-1">Zied Bouraoui</div>
+          <div class="committee-org text-muted small">CRIL, UMR 8188</div>
         </div>
-
-        <div class="col">
-          <div class="member-card p-3 h-100">
-            <div class="committee-name fw-semibold mb-1">Prenom Nom</div>
-            <div class="committee-org text-muted small mb-1">Universite Ipsum, France</div>
-          </div>
+      </div>
+      <div class="col">
+        <div class="member-card p-3 h-100">
+          <div class="committee-name fw-semibold mb-1">Meghyn Bienvenu</div>
+          <div class="committee-org text-muted small">LaBRI, UMR 5800</div>
         </div>
-
-        <div class="col">
-          <div class="member-card p-3 h-100">
-            <div class="committee-name fw-semibold mb-1">Prenom Nom</div>
-            <div class="committee-org text-muted small mb-1">Universite Dolor, France</div>
-          </div>
+      </div>
+      <div class="col">
+        <div class="member-card p-3 h-100">
+          <div class="committee-name fw-semibold mb-1">Engelbert Mephu Nguifo</div>
+          <div class="committee-org text-muted small">LIMOS, UMR 6158</div>
         </div>
-
-        <div class="col">
-          <div class="member-card p-3 h-100">
-            <div class="committee-name fw-semibold mb-1">Prenom Nom</div>
-            <div class="committee-org text-muted small mb-1">Universite Amet, France</div>
-          </div>
+      </div>
+      <div class="col">
+        <div class="member-card p-3 h-100">
+          <div class="committee-name fw-semibold mb-1">Nicolas Maudet</div>
+          <div class="committee-org text-muted small">LIP6, UMR 7606</div>
         </div>
-
+      </div>
+      <div class="col">
+        <div class="member-card p-3 h-100">
+          <div class="committee-name fw-semibold mb-1">Christine Solnon</div>
+          <div class="committee-org text-muted small">CITI</div>
+        </div>
       </div>
     </div>
+
+    <h4 class="text-center mb-4" style="color: #004080; font-weight: 600;">Comité d'organisation</h4>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4 justify-content-center">
+      <div class="col">
+        <div class="member-card p-3 h-100">
+          <div class="committee-name fw-semibold mb-1">Zied Bouraoui</div>
+          <div class="committee-org text-muted small">CRIL, UMR 8188</div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="member-card p-3 h-100">
+          <div class="committee-name fw-semibold mb-1">Fahima Cheikh</div>
+          <div class="committee-org text-muted small">CRIL, UMR 8188</div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="member-card p-3 h-100">
+          <div class="committee-name fw-semibold mb-1">Engelbert Mephu Nguifo</div>
+          <div class="committee-org text-muted small">LIMOS, UMR 6158</div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
